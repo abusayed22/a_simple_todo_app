@@ -4,3 +4,13 @@ __2. hello
 
 # TailwindCss- 
 __1. some color add in extend feature & use this
+
+# Reuseble components
+* useing one button for all
+
+
+
+
+
+
+                    # I will 
