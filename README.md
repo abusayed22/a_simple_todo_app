@@ -13,4 +13,4 @@ __1. some color add in extend feature & use this
 
 
 
-# This project isn't responsive. I focused tailwind & redux/react-redux pracice
+  # This project isn't responsive. I focused tailwind & redux/react-redux pracice
