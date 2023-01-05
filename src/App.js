@@ -3,7 +3,7 @@ import Todo from "./components/all_todo/Todo";
 
 function App() {
   return (
-    <div className="bg-main_c w-full h-100 flex flex-col item-center">
+    <div className="bg-main_c w-full h-full flex flex-col item-center">
       {/* nav area*/}
       <div className="w-3/4 h-12 bg-red-500 m-auto">
         <h2 className="font-bold text-slate-300 text-center py-3">A Simple TODO_ App</h2>
