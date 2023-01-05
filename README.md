@@ -8,7 +8,7 @@ __1. some color add in extend feature & use this
 # Reuseble components
 * useing one button for all
 
-<h1>useing devtools-extension</h1>
+<b>useing devtools-extension</b>
 
 
 
