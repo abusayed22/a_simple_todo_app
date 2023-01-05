@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
-import todosReducer from '.'
+import todoReducer from "./todos/todoReducer";
 import filterReducer from "./fillters/filterReducer";
 
 const rootReducer = combineReducers({
-    todos: todosReducer,
+    todos: todoReducer,
     filters: filterReducer
 });
 

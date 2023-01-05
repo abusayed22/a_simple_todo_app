@@ -6,7 +6,7 @@ const newId = (todos) => {
     return maxId + 1
 }
 
-const reducer = (state = inistialState, action) => {
+const todoReducer = (state = inistialState, action) => {
     switch (action.type) {
         case ADDED:
             return [
@@ -63,4 +63,4 @@ const reducer = (state = inistialState, action) => {
             return state;
     }
 };
-export default reducer;
+export default todoReducer;

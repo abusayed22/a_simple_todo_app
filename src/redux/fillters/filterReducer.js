@@ -1,5 +1,5 @@
+import inistialState from "../todos/inistialSate";
 import { COLOR, STATAUS } from "./actionTypes";
-import inistialState from "./inistialState";
 
 const filterReducer = (state = inistialState, action) => {
     switch (action.type) {
