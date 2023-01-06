@@ -1,7 +1,10 @@
-import inistialState from "../todos/inistialSate";
+import inistialState from "./inistialState";
 import { COLOR, STATAUS } from "./actionTypes";
 
-const filterReducer = (state = inistialState, action) => {
+
+
+
+const reducer = (state = inistialState, action) => {
     switch (action.type) {
         case STATAUS:
             return {
@@ -11,27 +14,30 @@ const filterReducer = (state = inistialState, action) => {
 
         case COLOR:
             const {color, changeType} = action.type;
+
                switch (changeType) {
                 case 'add':
                     return {
                         ...state.color,
-                         color
+                         color: [
+                            ...state.color,
+                             color
+                         ]
                     }
-                     
+
                 case 'remove':
                     return {
                         ...state,
-                        color: state.color.filter(existingColor => state.color !== color)
+                        color: state.color.filter(existingColor => existingColor !== color)
                     }
-               
+
                 default:
-                    break;
+                    return state
                }
-               return state;
-            
-    
+
+
         default:
-            break;
+            return state
     }
 }
-export default filterReducer;
+export default reducer;

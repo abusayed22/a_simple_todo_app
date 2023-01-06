@@ -6,16 +6,16 @@ const newId = (todos) => {
     return maxId + 1
 }
 
-const todoReducer = (state = inistialState, action) => {
+const reducer = (state = inistialState, action) => {
     switch (action.type) {
         case ADDED:
             return [
                 ...state,
                 {
                     id: newId(state),
-                    text: action.payload,
-                    isComplete: false,
-                    color: 'green'
+                    // text: action.payload,
+                    // isComplete: false,
+                    // color: 'green'
                 }
             ];
 
@@ -23,12 +23,16 @@ const todoReducer = (state = inistialState, action) => {
             return [
                 ...state,
                 state.map(todo => {
-                    todo.isComplete = true
+                    // TODO: {} => []
+                    return {
+                        ...todo,
+                        isComplete: true
+                    };
                 })
             ];
 
         case CLEAR_COMPLETE :
-            return state.map(todo => todo.isComplete !== true );
+            return state.filter(todo => !todo.isComplete );
 
         case TOGGLED:
             return state.map(todo => {
@@ -55,12 +59,12 @@ const todoReducer = (state = inistialState, action) => {
         });
 
         case DELETED: 
-        return state.filter(todo => {
-          return todo.id !== action.payload
-        })
+        return state.filter(todo => 
+           todo.id !== action.payload
+        )
 
         default:
             return state;
     }
 };
-export default todoReducer;
+export default reducer;
