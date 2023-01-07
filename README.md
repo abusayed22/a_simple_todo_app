@@ -5,8 +5,11 @@ __2. hello
 # TailwindCss- 
 __1. some color add in extend feature & use this
 
-# Reuseble components
-* useing one button for all
+
+<ul>Reuseble components</ul>
+<span>Reuseble components</span>
+<li>img-buuton</li>
+
 
 <b>useing devtools-extension</b>
 
@@ -15,4 +18,4 @@ __1. some color add in extend feature & use this
 
 
 
-        This project isn't responsive. I focused tailwind & redux/react-redux pracice
+        <b className="text-center text-red-600">This project isn't responsive. I focused tailwind & redux/react-redux pracice</b>

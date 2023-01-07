@@ -6,8 +6,10 @@ import double_tick from "../images/double-tick.png"
 import Button_img from './utils/Button_img'
 import Todo from './all_todo/Todo'
 import Footer from './footer/Footer'
+import { useSelector } from 'react-redux'
 
 function Header_input() {
+    const todos = useSelector(state => state.todos);
 
     return (
         <div>
@@ -25,11 +27,12 @@ function Header_input() {
                     </div>
                     <button type="">Clear Completed</button>
                 </div>
-                <br/>
-                <br/>
-                <Todo img={cancel} />
-                <Todo img={cancel} />
-                <Footer/>
+                <br />
+                <br />
+                {/* all todo map for read */}
+                {todos.map(todo => <Todo img={cancel} todo={todo} />)}
+
+                <Footer />
             </div>
         </div>
 
