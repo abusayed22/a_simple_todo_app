@@ -57,7 +57,6 @@ function Todo({ img, todo }) {
             } border-green-500 hover:bg-green-500 transition-colors`}
           ></div>
 
-
           <div
             className={` rounded-full bg-white border-2 w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 ${
               color === "yellow" && "bg-amber-500"

@@ -11,6 +11,9 @@ import { clearCompleted, completeAll } from '../redux/todos/action'
 
 function Header_input() {
   const todos = useSelector((state) => state.todos);
+  const fillters = useSelector((state) => state.fillters);
+
+  const { stataus, color } = fillters
   const dispatch = useDispatch();
 
   // all complete handler
@@ -55,7 +58,26 @@ function Header_input() {
         <br />
         <br />
         {/* all todo map for read */}
-        {todos.map((todo) => (
+        {todos
+        .filter(todo => {
+          switch (stataus) {
+            case 'complete':
+              return todo.isComplete;
+
+            case 'Incomplete':
+              return !todo.isComplete;
+          
+            default:
+              return true
+          }
+        })
+        .filter(todo => {
+          if(color?.length > 0) {
+            return color.includes(todo?.color)
+          }
+          return true
+        })
+        .map((todo) => (
           <Todo img={cancel} todo={todo} key={todo.id} />
         ))}
 
