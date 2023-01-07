@@ -10,20 +10,41 @@ import { useDispatch, useSelector } from 'react-redux'
 import { clearCompleted, completeAll } from '../redux/todos/action'
 
 function Header_input() {
-  const todos = useSelector((state) => state.todos);
-  const fillters = useSelector((state) => state.fillters);
+  const todos = useSelector((state) => state.todos)
+  const fillters = useSelector((state) => state.fillters)
 
   const { stataus, color } = fillters
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   // all complete handler
   const allCompleteHandler = () => {
     dispatch(completeAll())
-  };
+  }
 
   // complete clear
   const completeClear = () => {
     dispatch(clearCompleted())
+  }
+
+  // filter
+  const filterByColor = (todo) => {
+    if (color?.length > 0) {
+      return color.includes(todo?.color)
+    }
+    return true
+  }
+
+  const filterByStataus = (todo) => {
+    switch (stataus) {
+      case 'complete':
+        return todo.isComplete
+
+      case 'Incomplete':
+        return !todo.isComplete
+
+      default:
+        return true
+    }
   }
 
   return (
@@ -48,10 +69,10 @@ function Header_input() {
         </div>
         <div className="flex justify-between mt-2">
           <div onClick={allCompleteHandler} className="cursor-pointer flex">
-          <div className={`w-7 h-7 rounded-full `}>
-      <img width={`30px`} className='p-1' src={double_tick} alt="" />
-    </div>
-            <span className=''>complete all task</span>
+            <div className={`w-7 h-7 rounded-full `}>
+              <img width={`30px`} className="p-1" src={double_tick} alt="" />
+            </div>
+            <span className="">complete all task</span>
           </div>
           <button onClick={completeClear}>Clear Completed</button>
         </div>
@@ -59,27 +80,11 @@ function Header_input() {
         <br />
         {/* all todo map for read */}
         {todos
-        .filter(todo => {
-          switch (stataus) {
-            case 'complete':
-              return todo.isComplete;
-
-            case 'Incomplete':
-              return !todo.isComplete;
-          
-            default:
-              return true
-          }
-        })
-        .filter(todo => {
-          if(color?.length > 0) {
-            return color.includes(todo?.color)
-          }
-          return true
-        })
-        .map((todo) => (
-          <Todo img={cancel} todo={todo} key={todo.id} />
-        ))}
+          .filter(filterByStataus)
+          .filter(filterByColor)
+          .map((todo) => (
+            <Todo img={cancel} todo={todo} key={todo.id} />
+          ))}
 
         <Footer />
       </div>
