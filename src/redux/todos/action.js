@@ -6,10 +6,9 @@ export const added = (value) => {
         payload: value
     }
 }
-export const completeAll = (todoText) => {
+export const completeAll = () => {
     return {
         type: COMPLETE_ALL,
-        payload: todoText
     }
 }
 export const clearCompleted = (value) => {
@@ -18,29 +17,26 @@ export const clearCompleted = (value) => {
         payload: value
     }
 }
-export const toggled = (todoId,value) => {
+export const toggled = (todoId) => {
     return {
         type: TOGGLED,
-        payload: {
-            todoId,
-            value
-        }
+        payload: todoId
+        
     }
 }
-export const colorChange = (todoId,value) => {
+export const colorChange = (todoId,color) => {
     return {
         type: COLOR_CHANGE,
         payload: {
             todoId,
-            value
+            color
         }
     }
 }
 export const deleted = (todoId) => {
     return {
         type: DELETED,
-        payload: {
-            todoId,
-        }
+        payload: todoId,
+        
     }
 }

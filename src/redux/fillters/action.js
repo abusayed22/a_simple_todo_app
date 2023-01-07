@@ -1,17 +1,17 @@
 import { COLOR, STATAUS } from "./actionTypes"
 
 
-export const stataus = (stataus) => {
+export const statausChange = (stataus) => {
     return {
         type: STATAUS,
         payload: stataus
     }
 }
-export const color = (color, changeType) => {
+export const colorChange = (colorValue, changeType) => {
     return {
         type: COLOR,
         payload: {
-            color,
+            colorValue,
             changeType
         }
     }

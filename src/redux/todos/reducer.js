@@ -20,16 +20,13 @@ const reducer = (state = inistialState, action) => {
             ];
 
         case COMPLETE_ALL:
-            return [
-                ...state,
-                state.map(todo => {
-                    // TODO: {} => []
+            return state.map(todo => {
                     return {
                         ...todo,
                         isComplete: true
                     };
                 })
-            ];
+            
 
         case CLEAR_COMPLETE :
             return state.filter(todo => !todo.isComplete );
@@ -41,20 +38,19 @@ const reducer = (state = inistialState, action) => {
                 };
                 return {
                     ...todo,
-                    // eslint-disable-next-line no-undef
-                    isComplete : !isComplete
+                    isComplete: !todo.isComplete 
                 };
             });
 
         case COLOR_CHANGE: 
-        const {todoId, colorValue} = action.payload;
+        const {todoId, color} = action.payload;
         return state.map(todo => {
             if(todo.id !== todoId) {
                 return todo;
-            }
+            } else 
             return {
-                ...state,
-                color: colorValue
+                ...todo,
+                color: color
             }
         });
 

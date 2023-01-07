@@ -13,22 +13,19 @@ const reducer = (state = inistialState, action) => {
             }
 
         case COLOR:
-            const {color, changeType} = action.type;
+            const {colorValue, changeType} = action.payload;
 
                switch (changeType) {
-                case 'add':
+                    case "add":
                     return {
-                        ...state.color,
-                         color: [
-                            ...state.color,
-                             color
-                         ]
-                    }
+                        ...state,
+                        color: [...state.color,colorValue]
+                    };
 
                 case 'remove':
                     return {
                         ...state,
-                        color: state.color.filter(existingColor => existingColor !== color)
+                        color: state.color.filter(existingColor => existingColor !== colorValue)
                     }
 
                 default:

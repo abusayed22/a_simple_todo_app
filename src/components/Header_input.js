@@ -1,42 +1,68 @@
 import React from 'react'
 import plus from '../images/plus.png'
-import cancel from "../images/cancel.png"
-import note from "../images/notes.png"
-import double_tick from "../images/double-tick.png"
+import cancel from '../images/cancel.png'
+import note from '../images/notes.png'
+import double_tick from '../images/double-tick.png'
 import Button_img from './utils/Button_img'
 import Todo from './all_todo/Todo'
 import Footer from './footer/Footer'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { clearCompleted, completeAll } from '../redux/todos/action'
 
 function Header_input() {
-    const todos = useSelector(state => state.todos);
+  const todos = useSelector((state) => state.todos);
+  const dispatch = useDispatch();
 
-    return (
-        <div>
-            <div className='w-[700px] bg-slate-200 h-auto p-5 rounded-sm '>
-                <div className='flex justify-around bg-white items-center rounded-sm shadow-2xl'>
-                    <img width={'30px'} className='h-[30px]  border-none text-black' src={note} placeholder={'type add todo'} alt="" />
-                    <input className='outline-0 w-[550px] h-16' placeholder='Type todo here' type="" name="" value="" />
-                    <Button_img wed={30} border_color={'slate-900'} button_font={plus} />
-                </div>
-                <div className='flex justify-between mt-2'>
+  // all complete handler
+  const allCompleteHandler = () => {
+    dispatch(completeAll())
+  };
 
-                    <div className='cursor-pointer flex'>
-                        <Button_img wed={30} border_color={'slate-900'} text={'complete all task'} button_font={double_tick} />
-                        <span>complete all task</span>
-                    </div>
-                    <button type="">Clear Completed</button>
-                </div>
-                <br />
-                <br />
-                {/* all todo map for read */}
-                {todos.map(todo => <Todo img={cancel} todo={todo} />)}
+  // complete clear
+  const completeClear = () => {
+    dispatch(clearCompleted())
+  }
 
-                <Footer />
-            </div>
+  return (
+    <div>
+      <div className="w-[700px] bg-slate-200 h-auto p-5 rounded-sm ">
+        <div className="flex justify-around bg-white items-center rounded-sm shadow-2xl">
+          <img
+            width={'30px'}
+            className="h-[30px]  border-none text-black"
+            src={note}
+            placeholder={'type add todo'}
+            alt=""
+          />
+          <input
+            className="outline-0 w-[550px] h-16"
+            placeholder="Type todo here"
+            type=""
+            name=""
+            value=""
+          />
+          <Button_img wed={30} border_color={'slate-900'} button_font={plus} />
         </div>
+        <div className="flex justify-between mt-2">
+          <div onClick={allCompleteHandler} className="cursor-pointer flex">
+          <div className={`w-7 h-7 rounded-full `}>
+      <img width={`30px`} className='p-1' src={double_tick} alt="" />
+    </div>
+            <span className=''>complete all task</span>
+          </div>
+          <button onClick={completeClear}>Clear Completed</button>
+        </div>
+        <br />
+        <br />
+        {/* all todo map for read */}
+        {todos.map((todo) => (
+          <Todo img={cancel} todo={todo} key={todo.id} />
+        ))}
 
-    )
+        <Footer />
+      </div>
+    </div>
+  )
 }
 
 export default Header_input
