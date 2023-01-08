@@ -10,7 +10,8 @@
 
 
 
-<b className="text-xl text-red-500 m-auto">This project isn't responsive. I focused tailwind & redux/react-redux pracice </b>
+        <b style={{color:'red',textAlign:'center', backgroundColor:'#bae6fd'}}>This project isn't responsive. I focused tailwind & redux/react-redux pracice </b>
+
 
 
 
