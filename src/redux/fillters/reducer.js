@@ -9,17 +9,17 @@ const reducer = (state = inistialState, action) => {
         case STATAUS:
             return {
                 ...state,
-                stataus : action.payload
+                stataus: action.payload
             }
 
         case COLOR:
-            const {colorValue, changeType} = action.payload;
+            const { colorValue, changeType } = action.payload;
 
-               switch (changeType) {
-                    case "add":
+            switch (changeType) {
+                case "add":
                     return {
                         ...state,
-                        color: [...state.color,colorValue]
+                        color: [...state.color, colorValue]
                     };
 
                 case 'remove':
@@ -30,7 +30,7 @@ const reducer = (state = inistialState, action) => {
 
                 default:
                     return state
-               }
+            }
 
 
         default:

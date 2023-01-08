@@ -1,9 +1,16 @@
-import { ADDED, CLEAR_COMPLETE, COLOR_CHANGE, COMPLETE_ALL, DELETED, TOGGLED } from "./actionTypes"
+import {
+    ADDED,
+    CLEAR_COMPLETE,
+    COLOR_CHANGE,
+    COMPLETE_ALL,
+    DELETED,
+    TOGGLED,
+} from './actionTypes'
 
 export const added = (value) => {
     return {
         type: ADDED,
-        payload: value
+        payload: value,
     }
 }
 export const completeAll = () => {
@@ -14,29 +21,27 @@ export const completeAll = () => {
 export const clearCompleted = (value) => {
     return {
         type: CLEAR_COMPLETE,
-        payload: value
+        payload: value,
     }
 }
 export const toggled = (todoId) => {
     return {
         type: TOGGLED,
-        payload: todoId
-        
+        payload: todoId,
     }
 }
-export const colorChange = (todoId,color) => {
+export const colorChange = (todoId, color) => {
     return {
         type: COLOR_CHANGE,
         payload: {
             todoId,
-            color
-        }
+            color,
+        },
     }
 }
 export const deleted = (todoId) => {
     return {
         type: DELETED,
         payload: todoId,
-        
     }
 }

@@ -1,36 +1,35 @@
 /* eslint-disable react/jsx-pascal-case */
-import React from "react";
-import cancel from "../../images/cancel.png";
-import { useDispatch } from "react-redux";
-import { colorChange, deleted, toggled } from "../../redux/todos/action";
+import React from 'react'
+import cancel from '../../images/cancel.png'
+import { useDispatch } from 'react-redux'
+import { colorChange, deleted, toggled } from '../../redux/todos/action'
 
-function Todo({ img, todo }) {
-  const { id, text, isComplete, color } = todo;
-  const dispatch = useDispatch();
+function Todo({ todo }) {
+  const { id, text, isComplete, color } = todo
+  const dispatch = useDispatch()
 
   // handler function
 
   // deleteHandler
   const deleteHandler = (todoId) => {
-    dispatch(deleted(todoId));
-  };
+    dispatch(deleted(todoId))
+  }
 
   // toggledHandler
   const toggledHandler = (todoId) => {
-    dispatch(toggled(todoId));
-  };
+    dispatch(toggled(todoId))
+  }
 
   // colorChangHandler
   const colorChangeHandler = (todoId, color) => {
-    dispatch(colorChange(todoId, color));
-  };
+    dispatch(colorChange(todoId, color))
+  }
   return (
     <div>
       <div className="flex justify-between bg-slate-200 border-b border-gray-400/20 py-2">
         <div
-          className={`rounded-full  bg-white border-2  w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 ${
-            isComplete && "border-green-500 focus-within:border-green-500"
-          }`}
+          className={`rounded-full  bg-white border-2  w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 ${isComplete && 'border-green-500 focus-within:border-green-500'
+            }`}
         >
           <input
             type="checkbox"
@@ -48,26 +47,23 @@ function Todo({ img, todo }) {
           )}
         </div>
 
-        <p className={`${isComplete && "line-through"}`}>{text}</p>
+        <p className={`${isComplete && 'line-through'}`}>{text}</p>
         <div className="flex items-center justify-end">
           <div
-            onClick={() => colorChangeHandler(id, "green")}
-            className={` rounded-full bg-white border-2 w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 ${
-              color === "green" && "bg-green-500"
-            } border-green-500 hover:bg-green-500 transition-colors`}
+            onClick={() => colorChangeHandler(id, 'green')}
+            className={` rounded-full bg-white border-2 w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 ${color === 'green' && 'bg-green-500'
+              } border-green-500 hover:bg-green-500 transition-colors`}
           ></div>
 
           <div
-            className={` rounded-full bg-white border-2 w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 ${
-              color === "yellow" && "bg-amber-500"
-            } border-amber-400 hover:bg-amber-500 transition-colors`}
-            onClick={() => colorChangeHandler(id, "yellow")}
+            className={` rounded-full bg-white border-2 w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 ${color === 'yellow' && 'bg-amber-500'
+              } border-amber-400 hover:bg-amber-500 transition-colors`}
+            onClick={() => colorChangeHandler(id, 'yellow')}
           ></div>
           <div
-            className={` rounded-full bg-white border-2 w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 ${
-              color === "red" && "bg-red-600"
-            } border-red-500 hover:bg-red-500 transition-colors`}
-            onClick={() => colorChangeHandler(id, "red")}
+            className={` rounded-full bg-white border-2 w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 ${color === 'red' && 'bg-red-600'
+              } border-red-500 hover:bg-red-500 transition-colors`}
+            onClick={() => colorChangeHandler(id, 'red')}
           ></div>
 
           <button
@@ -79,7 +75,7 @@ function Todo({ img, todo }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Todo;
+export default Todo

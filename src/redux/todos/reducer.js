@@ -13,51 +13,51 @@ const reducer = (state = inistialState, action) => {
                 ...state,
                 {
                     id: newId(state),
-                    // text: action.payload,
-                    // isComplete: false,
+                    text: action.payload,
+                    isComplete: false,
                     // color: 'green'
                 }
             ];
 
         case COMPLETE_ALL:
             return state.map(todo => {
-                    return {
-                        ...todo,
-                        isComplete: true
-                    };
-                })
-            
+                return {
+                    ...todo,
+                    isComplete: true
+                };
+            })
 
-        case CLEAR_COMPLETE :
-            return state.filter(todo => !todo.isComplete );
+
+        case CLEAR_COMPLETE:
+            return state.filter(todo => !todo.isComplete);
 
         case TOGGLED:
             return state.map(todo => {
-                if(todo.id !== action.payload) {
+                if (todo.id !== action.payload) {
                     return todo;
                 };
                 return {
                     ...todo,
-                    isComplete: !todo.isComplete 
+                    isComplete: !todo.isComplete
                 };
             });
 
-        case COLOR_CHANGE: 
-        const {todoId, color} = action.payload;
-        return state.map(todo => {
-            if(todo.id !== todoId) {
-                return todo;
-            } else 
-            return {
-                ...todo,
-                color: color
-            }
-        });
+        case COLOR_CHANGE:
+            const { todoId, color } = action.payload;
+            return state.map(todo => {
+                if (todo.id !== todoId) {
+                    return todo;
+                } else
+                    return {
+                        ...todo,
+                        color: color
+                    }
+            });
 
-        case DELETED: 
-        return state.filter(todo => 
-           todo.id !== action.payload
-        )
+        case DELETED:
+            return state.filter(todo =>
+                todo.id !== action.payload
+            )
 
         default:
             return state;
