@@ -1,3 +1,6 @@
+
+<img src="./Screenshot_3.png" alt="">
+
 # What tools where use! 
 __1. redux / react-redux
 __2. hello
