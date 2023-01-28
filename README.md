@@ -10,7 +10,7 @@
 
 
 #<b>'This project isn't responsive. I focused tailwind & redux/react-redux pracice' </b>
-<p>Thunk is way to data fetching from real api, so i did try thunk implement in this ixist project</p>
+
 
 
 
